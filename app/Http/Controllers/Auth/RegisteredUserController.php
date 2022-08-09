@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -43,6 +44,13 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+        ]);
+
+        // Créer l'image de profil
+        Image::create([
+            'url' => "https://avatars.dicebear.com/api/initials/" . $user->name . ".svg",
+            'imageable_id' => $user->id,
+            'imageable_type' => "App\Models\User",
         ]);
 
         event(new Registered($user));

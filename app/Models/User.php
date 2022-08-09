@@ -48,4 +48,12 @@ class User extends Authenticatable implements CanResetPassword
     {
         return $this->is_admin == true;
     }
+
+    /**
+     * Get the user's image.
+     */
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }
