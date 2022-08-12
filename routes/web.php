@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/profil/{id}', [UserController::class, 'getProfil'])->middleware(['auth'])->name('profil');
+Route::put('/profil/{id}', [UserController::class, 'updateProfil'])->middleware(['auth'])->name('profil.update');
 
