@@ -23,6 +23,8 @@ class User extends Authenticatable implements CanResetPassword
         'name',
         'email',
         'password',
+        'contact',
+        'address',
     ];
 
     /**
@@ -55,5 +57,11 @@ class User extends Authenticatable implements CanResetPassword
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    // Relation avec la table 'social_medias'
+    public function social_medias()
+    {
+        return $this->hasMany(SocialMedia::class);
     }
 }
