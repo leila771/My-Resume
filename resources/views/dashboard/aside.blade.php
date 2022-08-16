@@ -38,6 +38,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 @if (Auth::user()->isAdmin())
+                 
                     <li class="nav-item menu-open">
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -68,6 +69,7 @@
                         </ul>
                     </li>
                 @endif
+
                 <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>

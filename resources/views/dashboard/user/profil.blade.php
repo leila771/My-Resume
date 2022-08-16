@@ -23,7 +23,19 @@
 @section('content')
     <section class="content">
         <div class="container-fluid">
-            <h4>Informations personnelles</h4>
+
+        <div class="my-5">
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+                <strong>{{$message}}</strong>
+            </div>
+
+            <img src="{{ asset('images/'.Session::get('image')) }}" />
+        @endif
+        </div>
+
+        <div>
+        <h4>Informations personnelles</h4>
             <form action="{{ route('profil.update', $user->id) }}" method="post">
                 @csrf
                 @method("PUT")
@@ -45,6 +57,40 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Valider</button>
             </form>
+        </div>
+
+        <div class="my-5">
+        <h4>Modification du mot de passe</h4>
+            <form action="{{ route('password.update', $user->id) }}" method="post">
+                @csrf
+                @method("PUT")
+                <div class="form-group">
+                    <label for="name">Mot de passe</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="email">Confirmation du mot de passe</label>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                </div>
+                <button type="submit" class="btn btn-primary">Valider</button>
+            </form>
+        </div>
+
+        <div class="my-5">
+        <h4>Image de Profil</h4>
+            <form action="{{ route('image.update', $user->id) }}" method="post" enctype="multipart/form-data">
+
+                @csrf
+                @method("PUT")
+                <div class="form-group">
+                    <label for="name">Choisir une image de profil</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Valider</button>
+            </form>
+        </div>
+        
         </div><!-- /.container-fluid -->
     </section>
 @endsection
