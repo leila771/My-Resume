@@ -26,4 +26,6 @@ require __DIR__.'/auth.php';
 
 Route::get('/profil/{id}', [UserController::class, 'getProfil'])->middleware(['auth'])->name('profil');
 Route::put('/profil/{id}', [UserController::class, 'updateProfil'])->middleware(['auth'])->name('profil.update');
+Route::put('/profil/password/{id}', [UserController::class, 'changePassword'])->middleware(['auth'])->name('password.update');
+Route::put('/profil/image/{id}', [UserController::class, 'changeImage'])->middleware(['auth'])->name('image.update');
 
