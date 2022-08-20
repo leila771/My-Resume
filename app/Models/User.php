@@ -60,8 +60,8 @@ class User extends Authenticatable implements CanResetPassword
     }
 
     // Relation avec la table 'social_medias'
-    public function social_medias()
+    public function formations()
     {
-        return $this->hasMany(SocialMedia::class);
+        return $this->hasMany(Formation::class);
     }
 }
