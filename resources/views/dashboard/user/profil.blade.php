@@ -29,8 +29,6 @@
             <div class="alert alert-success alert-block">
                 <strong>{{$message}}</strong>
             </div>
-
-            <img src="{{ asset('images/'.Session::get('image')) }}" />
         @endif
         </div>
 
@@ -86,11 +84,11 @@
                     <label for="name">Choisir une image de profil</label>
                     <input type="file" class="form-control" id="image" name="image">
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Valider</button>
             </form>
         </div>
-        
+
         </div><!-- /.container-fluid -->
     </section>
 @endsection

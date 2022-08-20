@@ -11,7 +11,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ Auth::user()->image->url ?? "" }}" class="img-circle elevation-2" alt="User Image">
+                <img src="{{ Auth::user()->image->url ?? '' }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="{{ route('profil', Auth::user()->id) }}" class="d-block">{{ Auth::user()->name }}</a>
@@ -38,7 +38,6 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 @if (Auth::user()->isAdmin())
-                 
                     <li class="nav-item menu-open">
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -71,12 +70,13 @@
                 @endif
 
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{ route('formations.list-by-user', Auth::user()->id) }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Widgets
-                            <span class="right badge badge-danger">New</span>
-                        </p>
+                        <p>Mes formations</p>
+                    </a>
+                    <a href="{{ route('resume.list', Auth::user()->id) }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Mon CV</p>
                     </a>
                 </li>
             </ul>
